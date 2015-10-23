@@ -1,0 +1,148 @@
+= HiveMQ JVM Metrics Plugin
+
+The HiveMQ JVM Metric Plugin adds several additional metrics about the Java Virtual Machine to HiveMQ's internal metric registry. This allows for a deeper insight on what is happening inside the Java Virtual Machine and provides interesting information on memory usage and other runtime metrics provided by the JVM running HiveMQ.
+
+These metrics include information about:
+
+* Memory usage
+* Threads
+* Class Loaders
+* Garbage Collection
+* Open Files
+* Buffer Pool
+
+These metrics can be accessed by using the http://www.hivemq.com/plugin/jmx-plugin/[JMX-Plugin] or the http://www.hivemq.com/plugin/graphite-plugin/[Graphite Plugin].
+
+Or you can use these metrics in http://www.hivemq.com/docs/plugins/latest/#metric-service[your own HiveMQ plugin]
+
+== Installation
+
+. Download a plugin from the http://www.hivemq.com/plugins/[HiveMQ plugin store]
+. Unzip the contents of your download
+. Copy the jar file to the plugins folder inside your HiveMQ folder.
+
+read more about installing and configuring plugins in the http://www.hivemq.com/docs/hivemq/latest/#hivemqdocs_installing_plugins[HiveMQ Documentation]
+
+
+== List of Metrics
+The following metrics are added to HiveMQ when this plugin is installed.
+
+=== BufferPool
+
+.BufferPool metrics
+[options="header"]
+|===
+|Name |Description
+
+| com.hivemq.jvm.buffer-pool.direct.capacity | estimate of the total capacity of the buffers in the direct pool
+| com.hivemq.jvm.buffer-pool.direct.count | estimate of the number of buffers in the direct pool
+| com.hivemq.jvm.buffer-pool.direct.used | estimate of the memory that the Java virtual machine is using for the direct buffer pool
+| com.hivemq.jvm.buffer-pool.mapped.capacity | estimate of the total capacity of the buffers in the mapped pool
+| com.hivemq.jvm.buffer-pool.mapped.count | estimate of the number of buffers in the mapped pool
+| com.hivemq.jvm.buffer-pool.mapped.used | estimate of the memory that the Java virtual machine is using for the mapped buffer pool
+|===
+
+=== ClassLoader
+.ClassLoader metrics
+[options="header"]
+|===
+|Name |Description
+
+| com.hivemq.jvm.class-loader.loaded | number of classes that are currently loaded in the Java virtual machine
+| com.hivemq.jvm.class-loader.unloaded | the total number of classes unloaded since the Java virtual machine has started execution
+|===
+
+=== File descriptors
+
+.File descriptor metrics
+[options="header"]
+|===
+|Name |Description
+
+| com.hivemq.jvm.file-descriptor.ratio | ratio of currently open against max open files for this JVM
+|===
+
+=== Garbage collector
+
+.Garbage collector metrics
+[options="header"]
+|===
+|Name |Description
+
+| com.hivemq.jvm.garbage-collector.PS-MarkSweep.count | the total number of collections that have occurred
+| com.hivemq.jvm.garbage-collector.PS-MarkSweep.time | the approximate accumulated collection elapsed time in milliseconds
+| com.hivemq.jvm.garbage-collector.PS-Scavenge.count | the total number of collections that have occurred
+| com.hivemq.jvm.garbage-collector.PS-Scavenge.time | the approximate accumulated collection elapsed time in milliseconds
+|===
+
+=== Memory
+
+.Memory metrics
+[options="header"]
+|===
+|Name |Description
+
+| com.hivemq.jvm.memory.heap.committed | the amount of memory in bytes that is committed for the Java virtual machine to use
+| com.hivemq.jvm.memory.heap.init | the amount of memory in bytes that the Java virtual machine initially requests from the operating system for memory management
+| com.hivemq.jvm.memory.heap.max | the maximum amount of memory in bytes that can be used for memory management
+| com.hivemq.jvm.memory.heap.usage | ratio used / max
+| com.hivemq.jvm.memory.heap.used | the amount of used memory in bytes
+| com.hivemq.jvm.memory.non-heap.committed | the amount of memory in bytes that is committed for the Java virtual machine to use
+| com.hivemq.jvm.memory.non-heap.init | the amount of memory in bytes that the Java virtual machine initially requests from the operating system for memory management
+| com.hivemq.jvm.memory.non-heap.max | the maximum amount of memory in bytes that can be used for memory management
+| com.hivemq.jvm.memory.non-heap.usage | ratio used / max
+| com.hivemq.jvm.memory.non-heap.used | the amount of used memory in bytes
+| com.hivemq.jvm.memory.pools.Code-Cache.committed |the amount of memory in bytes that is committed for the Java virtual machine to use
+| com.hivemq.jvm.memory.pools.Code-Cache.init | the amount of memory in bytes that the Java virtual machine initially requests from the operating system for memory management
+| com.hivemq.jvm.memory.pools.Code-Cache.max | the maximum amount of memory in bytes that can be used for memory management
+| com.hivemq.jvm.memory.pools.Code-Cache.usage | ratio used / max
+| com.hivemq.jvm.memory.pools.Code-Cache.used | the amount of used memory in bytes
+| com.hivemq.jvm.memory.pools.Compressed-Class-Space.committed | the amount of memory in bytes that is committed for the Java virtual machine to use
+| com.hivemq.jvm.memory.pools.Compressed-Class-Space.init | the amount of memory in bytes that the Java virtual machine initially requests from the operating system for memory management
+| com.hivemq.jvm.memory.pools.Compressed-Class-Space.max | the maximum amount of memory in bytes that can be used for memory management
+| com.hivemq.jvm.memory.pools.Compressed-Class-Space.usage | ratio used / max
+| com.hivemq.jvm.memory.pools.Compressed-Class-Space.used | the amount of used memory in bytes
+| com.hivemq.jvm.memory.pools.Metaspace.committed | the amount of memory in bytes that is committed for the Java virtual machine to use
+| com.hivemq.jvm.memory.pools.Metaspace.init | the amount of memory in bytes that the Java virtual machine initially requests from the operating system for memory management
+| com.hivemq.jvm.memory.pools.Metaspace.max | the maximum amount of memory in bytes that can be used for memory management
+| com.hivemq.jvm.memory.pools.Metaspace.usage | ratio used / max
+| com.hivemq.jvm.memory.pools.Metaspace.used | the amount of used memory in bytes
+| com.hivemq.jvm.memory.pools.PS-Eden-Space.committed | the amount of memory in bytes that is committed for the Java virtual machine to use
+| com.hivemq.jvm.memory.pools.PS-Eden-Space.init | the amount of memory in bytes that the Java virtual machine initially requests from the operating system for memory management
+| com.hivemq.jvm.memory.pools.PS-Eden-Space.max | the maximum amount of memory in bytes that can be used for memory management
+| com.hivemq.jvm.memory.pools.PS-Eden-Space.usage | ratio used / max
+| com.hivemq.jvm.memory.pools.PS-Eden-Space.used | the amount of used memory in bytes
+| com.hivemq.jvm.memory.pools.PS-Old-Gen.committed | the amount of memory in bytes that is committed for the Java virtual machine to use
+| com.hivemq.jvm.memory.pools.PS-Old-Gen.init | the amount of memory in bytes that the Java virtual machine initially requests from the operating system for memory management
+| com.hivemq.jvm.memory.pools.PS-Old-Gen.max | the maximum amount of memory in bytes that can be used for memory management
+| com.hivemq.jvm.memory.pools.PS-Old-Gen.usage | ratio used / max
+| com.hivemq.jvm.memory.pools.PS-Old-Gen.used | the amount of used memory in bytes
+| com.hivemq.jvm.memory.pools.PS-Survivor-Space.committed | the amount of memory in bytes that is committed for the Java virtual machine to use
+| com.hivemq.jvm.memory.pools.PS-Survivor-Space.init | the amount of memory in bytes that the Java virtual machine initially requests from the operating system for memory management
+| com.hivemq.jvm.memory.pools.PS-Survivor-Space.max | the maximum amount of memory in bytes that can be used for memory management
+| com.hivemq.jvm.memory.pools.PS-Survivor-Space.usage | ratio used / max
+| com.hivemq.jvm.memory.pools.PS-Survivor-Space.used | the amount of used memory in bytes
+| com.hivemq.jvm.memory.total.committed | the amount of memory in bytes that is committed for the Java virtual machine to use
+| com.hivemq.jvm.memory.total.init | the amount of memory in bytes that the Java virtual machine initially requests from the operating system for memory management
+| com.hivemq.jvm.memory.total.max | the maximum amount of memory in bytes that can be used for memory management
+| com.hivemq.jvm.memory.total.used | the amount of used memory in bytes
+|===
+
+=== Threads
+
+.Thread metrics
+[options="header"]
+|===
+|Name |Description
+
+| com.hivemq.jvm.threads.blocked.count | current number of threads in "blocked" state in this JVM (A thread in the blocked state is waiting for a monitor lock to enter a synchronized block/method or reenter a synchronized block/method)
+| com.hivemq.jvm.threads.count | current number of threads in this JVM
+| com.hivemq.jvm.threads.daemon.count | current number of live daemon threads in this JVM
+| com.hivemq.jvm.threads.deadlock.count | current number of deadlocked threads in this JVM
+| com.hivemq.jvm.threads.deadlocks | collection of information about the currently deadlocked threads
+| com.hivemq.jvm.threads.new.count | current number of threads in "new" state (has not yet started) in this JVM
+| com.hivemq.jvm.threads.runnable.count | current number of threads in "runnable" state in this JVM (A thread in the runnable state is executing in the Java virtual machine but it may be waiting for other resources from the operating system such as processor)
+| com.hivemq.jvm.threads.terminated.count | current number of threads in "terminated" state (The thread has completed execution) in this JVM
+| com.hivemq.jvm.threads.timed_waiting.count | current number of threads in "timed_waiting" state in this JVM ( thread in the waiting state is waiting for another thread to perform a particular action with a specified positive waiting time/timeout)
+| com.hivemq.jvm.threads.waiting.count | current number of threads in "waiting" state in this JVM (A thread in the waiting state is waiting for another thread to perform a particular action without a timeout)
+|===
