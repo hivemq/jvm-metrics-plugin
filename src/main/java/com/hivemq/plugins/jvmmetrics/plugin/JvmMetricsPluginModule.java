@@ -24,7 +24,7 @@ import com.hivemq.spi.plugin.meta.Information;
 /**
  * @author Christoph Schäbel
  */
-@Information(name = "HiveMQ JVM Metrics Plugin", author = "Christoph Schäbel", version = "3.1.0")
+@Information(name = "HiveMQ JVM Metrics Plugin", author = "dc-square GmbH", version = "3.1.0")
 public class JvmMetricsPluginModule extends HiveMQPluginModule {
 
     @Override
