@@ -11,17 +11,17 @@ These metrics include information about:
 * Open Files
 * Buffer Pool
 
-These metrics can be accessed by using the http://www.hivemq.com/plugin/jmx-plugin/[JMX-Plugin] or the http://www.hivemq.com/plugin/graphite-plugin/[Graphite Plugin].
+These metrics can be accessed by using the https://github.com/hivemq/hivemq-jmx-plugin[JMX-Plugin] or the https://github.com/hivemq/graphite-plugin[Graphite Plugin].
 
-Or you can use these metrics in http://www.hivemq.com/docs/plugins/latest/#metric-service[your own HiveMQ plugin]
+Or you can use these metrics in https://www.hivemq.com/docs/3.4/plugins/services.html#metric-service[your own HiveMQ plugin]
 
 == Installation
 
-. Download a plugin from the http://www.hivemq.com/plugins/[HiveMQ plugin store]
+. Download the sources of a plugin and build it 
 . Unzip the contents of your download
 . Copy the jar file to the plugins folder inside your HiveMQ folder.
 
-read more about installing and configuring plugins in the http://www.hivemq.com/docs/hivemq/latest/#hivemqdocs_installing_plugins[HiveMQ Documentation]
+Read more about installing and configuring plugins in the https://www.hivemq.com/docs/3.4/plugins/introduction.html[HiveMQ Plugin Documentation].
 
 
 == List of Metrics
