@@ -146,3 +146,11 @@ The following metrics are added to HiveMQ when this plugin is installed.
 | com.hivemq.jvm.threads.timed_waiting.count | current number of threads in "timed_waiting" state in this JVM ( thread in the waiting state is waiting for another thread to perform a particular action with a specified positive waiting time/timeout)
 | com.hivemq.jvm.threads.waiting.count | current number of threads in "waiting" state in this JVM (A thread in the waiting state is waiting for another thread to perform a particular action without a timeout)
 |===
+
+= Contributing
+
+If you want to contribute to HiveMQ JVM Metrics Plugin, see the link:CONTRIBUTING.md[contribution guidelines].
+
+= License
+
+HiveMQ JVM Metrics Plugin is licensed under the `APACHE LICENSE, VERSION 2.0`. A copy of the license can be found link:LICENSE.txt[here].
